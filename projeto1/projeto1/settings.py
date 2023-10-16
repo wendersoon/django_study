@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core',
+    'core',                         # É preciso adicionar a aplicação aqui para que o projeto django reconheça
 ]
 
 MIDDLEWARE = [
