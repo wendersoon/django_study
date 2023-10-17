@@ -5,9 +5,23 @@
     <title>Index</title>
 </head>
 <body>
-    <h1>Index</h1>
-    <h2> {{ Aluno }}</h2>
-    <h3>{{ Grau }} {{ Curso }}</h3>
+    <h1>PRODUTOS</h1>
+    <table>
+        <thead>
+            <tr>
+                <th> Produto </th>
+                <th> Preço </th>
+            </tr> 
+        </thead>
+        <tbody>
+            {% for produto in produtos %}
+                <tr>
+                    <td> {{ produto.nome }} </td>
+                    <td>{{ produto.preco }}</td>
+                </tr>
+        {% endfor %}
+        </tbody>
+    </table>    
 </body>
 </html>
 </html>
