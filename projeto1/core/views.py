@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Produto
 
 # Create your views here.
@@ -17,7 +17,8 @@ def contato(request):
     return render(request, 'contato.html')
 
 def produto(request, id):
-    prod = Produto.objects.get(id=id)
+    # prod = Produto.objects.get(id=id)
+    prod = get_object_or_404(Produto, id=id)
     context = {
         'produto': prod,
     }
