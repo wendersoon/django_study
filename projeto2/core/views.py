@@ -28,7 +28,7 @@ def produto(request):
     if str(request.method) == 'POST':
         form = ProdutoModelForm(request.POST)
         if form.is_valid():
-            prod = form.save(commit=False)
+            form.save()
             
             messages.success(request, 'Produto salvo com sucesso')
         else:
