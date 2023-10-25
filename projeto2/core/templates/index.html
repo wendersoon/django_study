@@ -14,44 +14,47 @@
 <body>
     <div class="container">
 
+        {% if produtos %}
         <h1>Index</h1>
-        
+
         <table class="table table-dark">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th scope="col">Produto</th>
-            <th scope="col">Preço</th>
-            <th scope="col">Estoque</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for p in produtos %}
-            <tr>
-                <td scope="row">{{ p.id }}</td>
-                <td scope="row"><a href="#modal{{ p.id }}" data-toggle="modal">{{ p.nome }}</a></td>
-                <td scope="row">{{ p.preco }}</td>
-                <td scope="row">{{ p.estoque }}</td>
-            </tr>
-            <div class="modal fade bd-example-model-lg show" id="modal{{ p.id }}" role="dialog">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body" id="dynamic-content">
-                            <h1>Olá Mundo</h1>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th scope="col">Produto</th>
+                    <th scope="col">Preço</th>
+                    <th scope="col">Estoque</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in produtos %}
+                <tr>
+                    <td scope="row">{{ p.id }}</td>
+                    <td scope="row"><a href="#modal{{ p.id }}" data-toggle="modal">{{ p.nome }}</a></td>
+                    <td scope="row">{{ p.preco }}</td>
+                    <td scope="row">{{ p.estoque }}</td>
+                </tr>
+                <div class="modal fade bd-example-model-lg show" id="modal{{ p.id }}" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body" id="dynamic-content">
+                                <h1>Olá Mundo</h1>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
-    </tbody>
-        
-        </table>    
-    
+                {% endfor %}
+            </tbody>
+
+        </table>
+        {% else %}
+        <h1>Sem Produtos</h1>
+        {% endif %}
     </div>
 
     {% bootstrap_javascript jquery='full' %}
