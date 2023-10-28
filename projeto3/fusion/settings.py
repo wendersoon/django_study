@@ -79,8 +79,8 @@ WSGI_APPLICATION = 'fusion.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'fusion',   #nome do banco de dados,
-        'USER': 'postgres',  #usuário do banco de dados
+        'NAME': 'postgres',   #nome do banco de dados,
+        'USER': 'fusion',  #usuário do banco de dados
         'PASSWORD': 'senha',  #senha do banco de dados
         'HOST': 'localhost',  #host do banco de dados
         'PORT': '5432',  #porta do banco de dados
