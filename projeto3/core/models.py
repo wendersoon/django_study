@@ -19,12 +19,12 @@ class Base(models.Model):
         
 class Servico(Base):
     ICONE_CHOICES =(
-        ('ini-cog', "Engrenagem"),
-        ('ini-stats-up', "Gráfico"),
-        ('ini-users', "Usuários"),
-        ('ini-layers', "Design"),
-        ('ini-mobile', "Mobile"),
-        ('ini-rocket', "Foguete"),
+        ('lni-cog', "Engrenagem"),
+        ('lni-stats-up', "Gráfico"),
+        ('lni-users', "Usuários"),
+        ('lni-layers', "Design"),
+        ('lni-mobile', "Mobile"),
+        ('lni-rocket', "Foguete"),
     )
     
     servico = models.CharField('Serviço', max_length=100)
@@ -64,5 +64,15 @@ class Equipe(Base):
     def __str__(self):
         return self.nome
     
+class Features(Base):
+    ICONE_CHOICES =(
+        ('lni-cog', "Engrenagem"),
+        ('lni-leaf', "Folha"),
+        ('lni-layers', "Design"),
+        ('lni-laptop-phone', "Computador e Celular"),
+        ('lni-rocket', "Foguete"),
+    )
     
-    
+    feature = models.CharField('Feature', max_length=100)
+    descricao = models.CharField('Descricao', max_length=200)
+    icone = models.CharField('Icone', max_length=16, choices=ICONE_CHOICES)
