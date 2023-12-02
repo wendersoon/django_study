@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 
 class Chassi(models.Model):
     
@@ -28,6 +29,6 @@ class Carro(models.Model):
     montadora = models.ForeignKey('Montadora', on_delete=models.CASCADE)
     modelo = models.CharField('Modelo', max_length=30)
     preco = models.DecimalField('Preço', max_digits=8, decimal_places=2)
-    
+    motoristas = models.ManyToManyField(get_user_model())
     def __str__(self):
         return f'{self.montadora} {self.modelo}'
