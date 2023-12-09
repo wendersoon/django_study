@@ -16,7 +16,21 @@
         </div>
         <script>
             document.querySelector('#nome_sala').focus();
-            document.querySelector('#nome').
+            document.querySelector('#nome').onkeyup = function(e) {
+                if(e.keycode === 13){
+                    document.querySelector('#botao').click();
+                }
+            };
+
+            document.querySelector('#botao').onclick = function(e) {
+                var nome_sala = document.querySelector('#nome_sala').value;
+                if (nome_sala != "") {
+                    window.location.pathname = '/chat/' + nome_sala + '/';
+                } else {
+                    alert('Você precisa informar o nome da sala.');
+                    document.querySelector('#nome_sala').focus();
+                }
+            };
 
         </script>
 
