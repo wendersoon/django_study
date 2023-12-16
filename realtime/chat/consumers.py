@@ -1,10 +1,13 @@
-from channels.generic.websocket import AsyncWebsocketConsumer
 import json
+
+from channels.generic.websocket import AsyncWebsocketConsumer # The class we're using
+from asgiref.sync import sync_to_async # Implement later
 
 
 class ChatConsumer(AsyncWebsocketConsumer):
     
     async def connect(self):
+        print("Connecting")
         self.room_name = self.scope['url_route']['kwargs']['nome_sala']
         self.room_group_name = f'chat_{self.room_name}'
         
@@ -20,7 +23,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
         
     async def disconnect(self, code):
         # sai da sala
-        
+        print('oi')
         await self.channel_layer.group_discard(
             self.room_group_name,
             self.channel_name,
